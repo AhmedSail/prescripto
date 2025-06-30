@@ -72,7 +72,9 @@ const Register = () => {
     }
 
     try {
-      const res = await axios.get("https://prescriptojson.netlify.app/users");
+      const res = await axios.get(
+        "https://prescripto-json-production.up.railway.app/users"
+      );
       const exists = res.data.some((user) => user.email === email);
 
       if (exists) {
@@ -86,7 +88,10 @@ const Register = () => {
         role: "user", // افتراضيًا مستخدم عادي
       };
 
-      await axios.post("https://prescriptojson.netlify.app/users", newUser);
+      await axios.post(
+        "https://prescripto-json-production.up.railway.app/users",
+        newUser
+      );
       loginUser(newUser, "demo-token");
       toast.success("The account has been created successfully.");
       navigate(`/${newUser._id}/Myprofile`); // هذا يبدو صحيحًا للمستخدمين

@@ -23,7 +23,7 @@ const Doctors = () => {
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get("https://prescriptojson.netlify.app/doctors")
+      .get("https://prescripto-json-production.up.railway.app/doctors")
       .then((res) => {
         const foundDoctor = res.data.find((d) => d.id === doctorid);
 
@@ -91,10 +91,12 @@ const Doctors = () => {
     console.log(docSlots);
   }, [docSlots]);
   useEffect(() => {
-    axios.get("https://prescriptojson.netlify.app/users").then((res) => {
-      const foundUser = res.data.find((u) => u._id === userid);
-      setUser(foundUser);
-    });
+    axios
+      .get("https://prescripto-json-production.up.railway.app/users")
+      .then((res) => {
+        const foundUser = res.data.find((u) => u._id === userid);
+        setUser(foundUser);
+      });
   }, [userid]);
   const BookAppointment = async (e) => {
     e.preventDefault();
@@ -157,11 +159,11 @@ const Doctors = () => {
 
     try {
       await axios.patch(
-        `https://prescriptojson.netlify.app/users/${user.id}`,
+        `https://prescripto-json-production.up.railway.app/users/${user.id}`,
         updatedUser
       );
       await axios.patch(
-        `https://prescriptojson.netlify.app/doctors/${doctorFind.id}`,
+        `https://prescripto-json-production.up.railway.app/doctors/${doctorFind.id}`,
         updatedDoctor
       );
 
@@ -172,12 +174,12 @@ const Doctors = () => {
       localStorage.setItem("user", JSON.stringify(updatedUser));
       localStorage.setItem("doctor", JSON.stringify(updatedDoctor));
       const userRes = await axios.get(
-        `https://prescriptojson.netlify.app/users/${user.id}`
+        `https://prescripto-json-production.up.railway.app/users/${user.id}`
       );
       setUser(userRes.data);
 
       const doctorRes = await axios.get(
-        `https://prescriptojson.netlify.app/doctors/${doctorFind.id}`
+        `https://prescripto-json-production.up.railway.app/doctors/${doctorFind.id}`
       );
       setDoctorFind(doctorRes.data);
     } catch (err) {

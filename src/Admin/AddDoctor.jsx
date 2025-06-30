@@ -65,7 +65,10 @@ const AddDoctor = () => {
     };
 
     try {
-      await axios.post("https://prescriptojson.netlify.app/doctors", newDoctor);
+      await axios.post(
+        "https://prescripto-json-production.up.railway.app/doctors",
+        newDoctor
+      );
       toast.success("Doctor added successfully!");
       setForm({
         name: "",

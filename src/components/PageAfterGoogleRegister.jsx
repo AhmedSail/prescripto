@@ -44,7 +44,10 @@ const PageAfterGoogleRegister = () => {
 
     // تحديث بيانات المستخدم في الـ JSON Server
     axios
-      .patch(`https://prescriptojson.netlify.app/users/${user.id}`, formData)
+      .patch(
+        `https://prescripto-json-production.up.railway.app/users/${user.id}`,
+        formData
+      )
       .then(() => {
         // تحديث `users` في `Context`
         const updatedUsers = users.map((user) =>

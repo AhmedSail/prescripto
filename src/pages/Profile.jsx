@@ -30,7 +30,9 @@ const Profile = () => {
     }
 
     // Check if the email already exists
-    const res = await axios.get("https://prescriptojson.netlify.app/users");
+    const res = await axios.get(
+      "https://prescripto-json-production.up.railway.app/users"
+    );
     const exists = res.data.find(
       (u) => u.email === user.email && u._id !== user._id
     );
@@ -57,10 +59,12 @@ const Profile = () => {
     return true; // ✅ All validations passed
   };
   useEffect(() => {
-    axios.get("https://prescriptojson.netlify.app/users").then((res) => {
-      const foundUser = res.data.find((u) => u._id === userid);
-      setUser(foundUser);
-    });
+    axios
+      .get("https://prescripto-json-production.up.railway.app/users")
+      .then((res) => {
+        const foundUser = res.data.find((u) => u._id === userid);
+        setUser(foundUser);
+      });
   }, [userid]);
 
   return (
@@ -270,7 +274,7 @@ const Profile = () => {
 
                       axios
                         .patch(
-                          `https://prescriptojson.netlify.app/users/${user.id}`,
+                          `https://prescripto-json-production.up.railway.app/users/${user.id}`,
                           user
                         )
                         .then(() => {

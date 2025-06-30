@@ -24,7 +24,7 @@ const Appointments = () => {
   const fetchUser = async () => {
     try {
       const res = await axios.get(
-        `https://prescriptojson.netlify.app/users/${user.id}`
+        `https://prescripto-json-production.up.railway.app/users/${user.id}`
       );
       setUser(res.data);
       localStorage.setItem("user", JSON.stringify(res.data));
@@ -39,7 +39,7 @@ const Appointments = () => {
 
   useEffect(() => {
     axios
-      .get("https://prescriptojson.netlify.app/doctors")
+      .get("https://prescripto-json-production.up.railway.app/doctors")
       .then((res) => setDoctors(res.data));
   }, []);
 
@@ -62,7 +62,7 @@ const Appointments = () => {
     );
     const updateUser = { ...user, appointments: updateAppointmentUser };
     await axios.patch(
-      `https://prescriptojson.netlify.app/users/${user.id}`,
+      `https://prescripto-json-production.up.railway.app/users/${user.id}`,
       updateUser
     );
     await fetchUser(); // 👈 تحديث المستخدم من السيرفر
@@ -74,14 +74,14 @@ const Appointments = () => {
     );
     const updateDoctor = { ...doctor, appointments: updateAppointmentDoctor };
     await axios.patch(
-      `https://prescriptojson.netlify.app/doctors/${doctorId}`,
+      `https://prescripto-json-production.up.railway.app/doctors/${doctorId}`,
       updateDoctor
     );
     localStorage.setItem("doctor", JSON.stringify(updateDoctor));
 
     // تحميل البيانات الجديدة لكل الدكاترة
     const refreshedDoctors = await axios.get(
-      "https://prescriptojson.netlify.app/doctors"
+      "https://prescripto-json-production.up.railway.app/doctors"
     );
     setDoctors(refreshedDoctors.data);
     // تحديث الواجهة

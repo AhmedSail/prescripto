@@ -13,21 +13,21 @@ const AppointmentContextProvider = (props) => {
   //axios to get data from json
   useEffect(() => {
     axios
-      .get("https://prescriptojson.netlify.app/doctors")
+      .get("https://prescripto-json-production.up.railway.app/doctors")
       .then((res) => setDoctors(res.data));
     axios
-      .get("https://prescriptojson.netlify.app/specialityData")
+      .get("https://prescripto-json-production.up.railway.app/specialityData")
       .then((res) => setSpecialityData(res.data));
     axios
-      .get("https://prescriptojson.netlify.app/users")
+      .get("https://prescripto-json-production.up.railway.app/users")
       .then((res) => setUsers(res.data));
     axios
-      .get("https://prescriptojson.netlify.app/admins")
+      .get("https://prescripto-json-production.up.railway.app/admins")
       .then((res) => setAdmins(res.data));
   }, []);
   const addUser = (newUser) => {
     axios
-      .post("https://prescriptojson.netlify.app/users", newUser)
+      .post("https://prescripto-json-production.up.railway.app/users", newUser)
       .then((res) => {
         setUsers((prevUsers) => [...prevUsers, res.data]); // تحديث القائمة
       })

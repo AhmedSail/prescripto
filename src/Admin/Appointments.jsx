@@ -9,22 +9,24 @@ const Appointments = () => {
 
   useEffect(() => {
     axios
-      .get("https://prescriptojson.netlify.app/users")
+      .get("https://prescripto-json-production.up.railway.app/users")
       .then((res) => setUsers(res.data));
-    axios.get("https://prescriptojson.netlify.app/doctors").then((res) => {
-      setDoctors(res.data);
+    axios
+      .get("https://prescripto-json-production.up.railway.app/doctors")
+      .then((res) => {
+        setDoctors(res.data);
 
-      const allAppointments = res.data.flatMap((doctor) =>
-        (doctor.appointments || []).map((appt, i) => ({
-          ...appt,
-          doctorId: doctor.id,
-          doctorName: doctor.name,
-          doctorPrice: doctor.price,
-        }))
-      );
+        const allAppointments = res.data.flatMap((doctor) =>
+          (doctor.appointments || []).map((appt, i) => ({
+            ...appt,
+            doctorId: doctor.id,
+            doctorName: doctor.name,
+            doctorPrice: doctor.price,
+          }))
+        );
 
-      setAppointments(allAppointments);
-    });
+        setAppointments(allAppointments);
+      });
   }, []);
 
   return (
