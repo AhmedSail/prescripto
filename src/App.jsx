@@ -1,7 +1,8 @@
 import React from "react";
 import { ToastContainer } from "react-toastify";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-
+import { useState, useEffect } from "react";
+import PuffLoader from "react-spinners/PuffLoader";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRouterUser from "./components/ProtectedRouterUser";
 import AuthRedirectRoute from "./components/AuthRedirectRoute";
@@ -22,146 +23,160 @@ import DoctorList from "./Admin/DoctorList";
 import AdminLayout from "./Admin/AdminLayout"; // ضيف هذا السطر
 
 const App = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 1500); // وقت التحميل، غيّره حسب الحاجة
+    return () => clearTimeout(timeout);
+  }, []);
   return (
     <AuthProvider>
-      <div>
-        <ToastContainer />
+      {loading ? (
+        <div className="flex items-center justify-center h-screen">
+          <PuffLoader color="#5F6FFF" size={150} speedMultiplier={1.5} />
+        </div>
+      ) : (
+        <div>
+          <ToastContainer />
 
-        <Routes>
-          {/* مسارات تسجيل الدخول والتسجيل - يتم منع الوصول إليها للمستخدمين المسجلين */}
-          <Route
-            path="/"
-            element={
-              <AuthRedirectRoute>
-                <Login />
-              </AuthRedirectRoute>
-            }
-          />
-          <Route
-            path="/register"
-            element={
-              <AuthRedirectRoute>
-                <Register />
-              </AuthRedirectRoute>
-            }
-          />
+          <Routes>
+            {/* مسارات تسجيل الدخول والتسجيل - يتم منع الوصول إليها للمستخدمين المسجلين */}
+            <Route
+              path="/"
+              element={
+                <AuthRedirectRoute>
+                  <Login />
+                </AuthRedirectRoute>
+              }
+            />
+            <Route
+              path="/register"
+              element={
+                <AuthRedirectRoute>
+                  <Register />
+                </AuthRedirectRoute>
+              }
+            />
 
-          {/* مسارات المستخدم المحمية */}
-          <Route
-            path="/:userid"
-            element={
-              <ProtectedRouterUser>
-                <Home />
-              </ProtectedRouterUser>
-            }
-          />
-          <Route
-            path="/:userid/:doctorid"
-            element={
-              <ProtectedRouterUser>
-                <Doctors />
-              </ProtectedRouterUser>
-            }
-          />
-          <Route
-            path="/:userid/:speciality"
-            element={
-              <ProtectedRouterUser>
-                <AllDoctors />
-              </ProtectedRouterUser>
-            }
-          />
-          <Route
-            path="/:userid/AllDoctors"
-            element={
-              <ProtectedRouterUser>
-                <AllDoctors />
-              </ProtectedRouterUser>
-            }
-          />
-          <Route
-            path="/:userid/Contact"
-            element={
-              <ProtectedRouterUser>
-                <Contact />
-              </ProtectedRouterUser>
-            }
-          />
-          <Route
-            path="/:userid/About"
-            element={
-              <ProtectedRouterUser>
-                <About />
-              </ProtectedRouterUser>
-            }
-          />
-          <Route
-            path="/:userid/Appointments"
-            element={
-              <ProtectedRouterUser>
-                <Appointments />
-              </ProtectedRouterUser>
-            }
-          />
-          <Route
-            path="/:userid/Info"
-            element={
-              <ProtectedRouterUser>
-                <PageAfterGoogleRegister />
-              </ProtectedRouterUser>
-            }
-          />
-          <Route
-            path="/:userid/Myprofile"
-            element={
-              <ProtectedRouterUser>
-                <Profile />
-              </ProtectedRouterUser>
-            }
-          />
-          <Route
-            path="/:adminid/home/"
-            element={
-              <ProtectedRouterUser>
-                <AdminLayout />
-              </ProtectedRouterUser>
-            }
-          >
+            {/* مسارات المستخدم المحمية */}
             <Route
-              path=""
+              path="/:userid"
               element={
                 <ProtectedRouterUser>
-                  <AdminHome />
+                  <Home />
                 </ProtectedRouterUser>
               }
             />
             <Route
-              path="adminAppointments"
+              path="/:userid/:doctorid"
               element={
                 <ProtectedRouterUser>
-                  <AdminAppointments />
+                  <Doctors />
                 </ProtectedRouterUser>
               }
             />
             <Route
-              path="addDoctor"
+              path="/:userid/:speciality"
               element={
                 <ProtectedRouterUser>
-                  <AddDoctor />
+                  <AllDoctors />
                 </ProtectedRouterUser>
               }
             />
             <Route
-              path="doctorList"
+              path="/:userid/AllDoctors"
               element={
                 <ProtectedRouterUser>
-                  <DoctorList />
+                  <AllDoctors />
                 </ProtectedRouterUser>
               }
             />
-          </Route>
-        </Routes>
-      </div>
+            <Route
+              path="/:userid/Contact"
+              element={
+                <ProtectedRouterUser>
+                  <Contact />
+                </ProtectedRouterUser>
+              }
+            />
+            <Route
+              path="/:userid/About"
+              element={
+                <ProtectedRouterUser>
+                  <About />
+                </ProtectedRouterUser>
+              }
+            />
+            <Route
+              path="/:userid/Appointments"
+              element={
+                <ProtectedRouterUser>
+                  <Appointments />
+                </ProtectedRouterUser>
+              }
+            />
+            <Route
+              path="/:userid/Info"
+              element={
+                <ProtectedRouterUser>
+                  <PageAfterGoogleRegister />
+                </ProtectedRouterUser>
+              }
+            />
+            <Route
+              path="/:userid/Myprofile"
+              element={
+                <ProtectedRouterUser>
+                  <Profile />
+                </ProtectedRouterUser>
+              }
+            />
+            <Route
+              path="/:adminid/home/"
+              element={
+                <ProtectedRouterUser>
+                  <AdminLayout />
+                </ProtectedRouterUser>
+              }
+            >
+              <Route
+                path=""
+                element={
+                  <ProtectedRouterUser>
+                    <AdminHome />
+                  </ProtectedRouterUser>
+                }
+              />
+              <Route
+                path="adminAppointments"
+                element={
+                  <ProtectedRouterUser>
+                    <AdminAppointments />
+                  </ProtectedRouterUser>
+                }
+              />
+              <Route
+                path="addDoctor"
+                element={
+                  <ProtectedRouterUser>
+                    <AddDoctor />
+                  </ProtectedRouterUser>
+                }
+              />
+              <Route
+                path="doctorList"
+                element={
+                  <ProtectedRouterUser>
+                    <DoctorList />
+                  </ProtectedRouterUser>
+                }
+              />
+            </Route>
+          </Routes>
+        </div>
+      )}
     </AuthProvider>
   );
 };
