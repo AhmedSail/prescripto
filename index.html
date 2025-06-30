@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/logo2.svg" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' 'unsafe-eval'
+      https://accounts.google.com
+      https://apis.google.com
+      https://www.gstatic.com
+      https://connect.facebook.net
+      blob:;
+    style-src 'self' 'unsafe-inline'
+      https://accounts.google.com
+      https://fonts.googleapis.com
+      https://www.facebook.com;
+    font-src 'self' https://fonts.gstatic.com;
+    img-src 'self' data: https:;
+    connect-src 'self'
+      https://accounts.google.com
+      https://www.googleapis.com
+      https://oauth2.googleapis.com
+      http://localhost:3001
+      https://www.facebook.com
+      https://graph.facebook.com;
+    frame-src 'self'
+      https://accounts.google.com;
+    object-src 'none';
+  "
+    />
+
+    <meta http-equiv="Cross-Origin-Opener-Policy" content="unsafe-none" />
+    <meta http-equiv="Cross-Origin-Embedder-Policy" content="unsafe-none" />
+    <title>Prescripto</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
