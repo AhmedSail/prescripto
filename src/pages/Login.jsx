@@ -150,10 +150,12 @@ const Login = () => {
         </form>
         <hr className="my-5" />
         <div className="flex justify-start items-center gap-1 ">
-          <p>Don't have an Account?</p>
-          <Link to={"/register"} className="text-[#5f6fff] font-bold">
-            Register Here!
-          </Link>
+          <p>
+            Don't have an Account?
+            <Link to={"/register"} className="text-[#5f6fff] font-bold">
+              Register Here!
+            </Link>
+          </p>
         </div>
         <LoginUsingSocial formData={formData} setFormData={setFormData} />
       </div>

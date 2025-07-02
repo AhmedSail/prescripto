@@ -386,11 +386,13 @@ const Register = () => {
 
         <hr className="my-5" />
 
-        <div className="flex flex-wrap justify-start items-center gap-2">
-          <p>Already have an account?</p>
-          <Link to="/" className="text-[#5f6fff] font-semibold">
-            Login Here!
-          </Link>
+        <div className="flex justify-start items-center">
+          <div>
+            Already have an account?
+            <Link to="/" className="text-[#5f6fff] font-semibold">
+              Login Here!
+            </Link>
+          </div>
         </div>
 
         <LoginUsingSocial formData={formData} setFormData={setFormData} />
