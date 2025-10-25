@@ -14,30 +14,28 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("https://prescripto-json-production.up.railway.app/doctors")
+      .get("https://prescripto-json-8.onrender.com/doctors")
       .then((res) => setDoctorlen(res.data.length));
     axios
-      .get("https://prescripto-json-production.up.railway.app/users")
+      .get("https://prescripto-json-8.onrender.com/users")
       .then((res) => setUserlen(res.data.length));
   }, []);
   useEffect(() => {
-    axios
-      .get("https://prescripto-json-production.up.railway.app/doctors")
-      .then((res) => {
-        const allDoctors = res.data;
-        setDoctors(allDoctors);
-        setDoctorlen(allDoctors.length);
+    axios.get("https://prescripto-json-8.onrender.com/doctors").then((res) => {
+      const allDoctors = res.data;
+      setDoctors(allDoctors);
+      setDoctorlen(allDoctors.length);
 
-        const allAppointments = allDoctors.flatMap(
-          (doctor) => doctor.appointments || []
-        );
-        setAppointment(allAppointments);
-        setTotalAppointments(allAppointments.length);
-      });
+      const allAppointments = allDoctors.flatMap(
+        (doctor) => doctor.appointments || []
+      );
+      setAppointment(allAppointments);
+      setTotalAppointments(allAppointments.length);
+    });
   }, []);
   useEffect(() => {
     axios
-      .get("https://prescripto-json-production.up.railway.app/users")
+      .get("https://prescripto-json-8.onrender.com/users")
       .then((res) => setUsers(res.data));
   }, []);
   console.log("Appointments", appointment);

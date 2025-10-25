@@ -29,7 +29,7 @@ const Home3 = () => {
   const TopDoctors = data.slice(0, 10);
   useEffect(() => {
     axios
-      .get("https://prescripto-json-production.up.railway.app/doctors")
+      .get("https://prescripto-json-8.onrender.com/doctors")
       .then((res) => setData(res.data))
       .catch((err) => console.error("Error fetching data:", err));
   }, []);

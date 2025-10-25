@@ -13,21 +13,21 @@ const AppointmentContextProvider = (props) => {
   //axios to get data from json
   useEffect(() => {
     axios
-      .get("https://prescripto-json-production.up.railway.app/doctors")
+      .get("https://prescripto-json-8.onrender.com/doctors")
       .then((res) => setDoctors(res.data));
     axios
-      .get("https://prescripto-json-production.up.railway.app/specialityData")
+      .get("https://prescripto-json-8.onrender.com/specialityData")
       .then((res) => setSpecialityData(res.data));
     axios
-      .get("https://prescripto-json-production.up.railway.app/users")
+      .get("https://prescripto-json-8.onrender.com/users")
       .then((res) => setUsers(res.data));
     axios
-      .get("https://prescripto-json-production.up.railway.app/admins")
+      .get("https://prescripto-json-8.onrender.com/admins")
       .then((res) => setAdmins(res.data));
   }, []);
   const addUser = (newUser) => {
     axios
-      .post("https://prescripto-json-production.up.railway.app/users", newUser)
+      .post("https://prescripto-json-8.onrender.com/users", newUser)
       .then((res) => {
         setUsers((prevUsers) => [...prevUsers, res.data]); // تحديث القائمة
       })

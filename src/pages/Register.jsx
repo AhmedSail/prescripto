@@ -73,7 +73,7 @@ const Register = () => {
 
     try {
       const res = await axios.get(
-        "https://prescripto-json-production.up.railway.app/users"
+        "https://prescripto-json-8.onrender.com/users"
       );
       const exists = res.data.some((user) => user.email === email);
 
@@ -88,10 +88,7 @@ const Register = () => {
         role: "user", // افتراضيًا مستخدم عادي
       };
 
-      await axios.post(
-        "https://prescripto-json-production.up.railway.app/users",
-        newUser
-      );
+      await axios.post("https://prescripto-json-8.onrender.com/users", newUser);
       loginUser(newUser, "demo-token");
       toast.success("The account has been created successfully.");
       navigate(`/${newUser._id}/Myprofile`); // هذا يبدو صحيحًا للمستخدمين

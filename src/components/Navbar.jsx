@@ -15,7 +15,9 @@ const Navbar = () => {
   const toogleMenu = () => {
     setShowMenu(!showMenu);
   };
-  const user = users.find((u) => u._id === userid);
+  const user = Array.isArray(users)
+    ? users.find((u) => u._id === userid)
+    : null;
   if (user) {
     localStorage.setItem("user", JSON.stringify(user));
   }

@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import { useAuth } from "../context/AuthContext";
 import { v4 as uuidv4 } from "uuid"; // تأكد من استيراد uuidv4
 
-const LoginUsingSocial = ({ formData, setFormData }) => {
+const LoginUsingSocial = () => {
   const { users, addUser, navigate, setFromSocial } =
     useContext(AppointmentContext);
   const { loginUser, setIsAuthenticated, setUser } = useAuth(); // تم تغيير اسم الدالة إلى loginUser لتطابق AuthContext
@@ -19,7 +19,7 @@ const LoginUsingSocial = ({ formData, setFormData }) => {
           `https://www.googleapis.com/oauth2/v3/userinfo`,
           {
             headers: {
-              Authorization: `Bearer ${tokenResponse.access_token}`, // تم تصحيح الخطأ الإملائي هنا
+              Authorization: `Bearer ${tokenResponse.access_token}`,
             },
           }
         );

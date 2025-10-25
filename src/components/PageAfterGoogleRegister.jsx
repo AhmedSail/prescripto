@@ -45,7 +45,7 @@ const PageAfterGoogleRegister = () => {
     // تحديث بيانات المستخدم في الـ JSON Server
     axios
       .patch(
-        `https://prescripto-json-production.up.railway.app/users/${user.id}`,
+        `https://prescripto-json-8.onrender.com/users/${user.id}`,
         formData
       )
       .then(() => {

@@ -66,7 +66,7 @@ const AddDoctor = () => {
 
     try {
       await axios.post(
-        "https://prescripto-json-production.up.railway.app/doctors",
+        "https://prescripto-json-8.onrender.com/doctors",
         newDoctor
       );
       toast.success("Doctor added successfully!");

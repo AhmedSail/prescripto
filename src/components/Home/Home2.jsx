@@ -9,7 +9,7 @@ const Home2 = () => {
 
   useEffect(() => {
     axios
-      .get("https://prescripto-json-production.up.railway.app/specialityData")
+      .get("https://prescripto-json-8.onrender.com/specialityData")
       .then((res) => setData(res.data))
       .catch((err) => console.error("Error fetching data:", err));
   }, []);

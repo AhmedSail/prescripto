@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import LoginUsingSocial from "../components/LoginUsingSocial";
 import { assets } from "../assets/assets_frontend/assets";
@@ -35,8 +35,12 @@ const Login = () => {
   };
   const handleLogin = (e) => {
     e.preventDefault();
-    const user = users.find((u) => u.email === formData.email);
-    const admin = admins.find((u) => u.email === formData.email);
+    const user = users.find(
+      (u) => u.email.toLowerCase() === formData.email.toLowerCase()
+    );
+    const admin = admins.find(
+      (u) => u.email.toLowerCase() === formData.email.toLowerCase()
+    );
 
     if (user || admin) {
       if (user && user.type === "Google") {

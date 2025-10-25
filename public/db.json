@@ -20,16 +20,7 @@
       "_id": "doc2",
       "name": "Dr. Emily Larson",
       "image": ["doc2"],
-      "appointments": [
-        {
-          "userId": "d13d",
-          "userName": "احمد ابو القمبز",
-          "doctorId": "7a2d",
-          "doctorName": "Dr. Emily Larson",
-          "date": "6/29/2025",
-          "time": "04:30 PM"
-        }
-      ],
+      "appointments": [],
       "speciality": "Gynecologist",
       "degree": "MBBS",
       "experience": "3 Years",
@@ -45,16 +36,7 @@
       "_id": "doc3",
       "name": "Dr. Sarah Patel",
       "image": ["doc3"],
-      "appointments": [
-        {
-          "userId": "71b0",
-          "userName": "medhat",
-          "doctorId": "9224",
-          "doctorName": "Dr. Sarah Patel",
-          "date": "6/29/2025",
-          "time": "04:30 PM"
-        }
-      ],
+      "appointments": [],
       "speciality": "Dermatologist",
       "degree": "MBBS",
       "experience": "1 Years",
@@ -70,16 +52,7 @@
       "_id": "doc4",
       "name": "Dr. Christopher Lee",
       "image": ["doc4"],
-      "appointments": [
-        {
-          "userId": "f3ef",
-          "userName": "Ahmed Qompoz",
-          "doctorId": "f728",
-          "doctorName": "Dr. Christopher Lee",
-          "date": "6/29/2025",
-          "time": "05:00 PM"
-        }
-      ],
+      "appointments": [],
       "speciality": "Pediatricians",
       "degree": "MBBS",
       "experience": "2 Years",
@@ -300,98 +273,7 @@
       "id": "4ef5"
     }
   ],
-  "users": [
-    {
-      "id": "f3ef",
-      "_id": "2552971998380154",
-      "name": "Ahmed Qompoz",
-      "email": "lanosh243@gmail.com",
-      "password": "",
-      "age": "21",
-      "images": "https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=2552971998380154&height=50&width=50&ext=1753520848&hash=AT9J_dUCfY7L6XRW6PBec06h",
-      "country": "Palestine",
-      "city": "غزة",
-      "phone": "0592855602",
-      "address1": "سلطة النقد",
-      "address2": "nusirat",
-      "appointments": [
-        {
-          "userId": "f3ef",
-          "userName": "Ahmed Qompoz",
-          "doctorId": "f728",
-          "doctorName": "Dr. Christopher Lee",
-          "date": "6/29/2025",
-          "time": "05:00 PM"
-        }
-      ],
-      "gender": "Female",
-      "type": "Facebook",
-      "role": "user"
-    },
-    {
-      "id": "684c",
-      "_id": "a57b2875-7d9e-47b0-9a99-6e5d873d6f11",
-      "name": "Breanna Logan",
-      "email": "qosocik@mailinator.com",
-      "password": "Pa$$w0rd!",
-      "age": "62",
-      "images": "/src/assets/assets_frontend/c96bc7ddb1b984a99b859471cd9c158b.jpg",
-      "country": "Et cupidatat nemo ap",
-      "city": "Quia voluptatum duci",
-      "phone": "+1 (979) 159-7285",
-      "address1": "33 Oak Boulevard",
-      "address2": "Expedita obcaecati a",
-      "appointments": [],
-      "gender": "Female",
-      "type": "Default",
-      "role": "user"
-    },
-    {
-      "id": "d078",
-      "_id": "c31c65f5-7eec-4410-9b5a-cc452d6055d7",
-      "name": "Rooney Baldwin",
-      "email": "lobotule@mailinator.com",
-      "password": "Pa$$w0rd!",
-      "age": "88",
-      "images": "/src/assets/assets_frontend/6481225432795d8cdf48f0f85800cf66.jpg",
-      "country": "Tempora ducimus rem",
-      "city": "Aut necessitatibus s",
-      "phone": "+1 (293) 195-6454",
-      "address1": "66 Oak Court",
-      "address2": "Esse dolore non non ",
-      "appointments": [],
-      "gender": "Male",
-      "type": "Default",
-      "role": "user"
-    },
-    {
-      "id": "71b0",
-      "_id": "f1aaca76-eaef-4366-9f2d-4dd64051024b",
-      "name": "medhat",
-      "email": "debepibim@mailinator.com",
-      "password": "Pa$$w0rd!",
-      "age": "20",
-      "images": "/src/assets/assets_frontend/6481225432795d8cdf48f0f85800cf66.jpg",
-      "country": "Sed ipsum rerum culp",
-      "city": "Beatae libero hic pr",
-      "phone": "+1 (466) 207-1657",
-      "address1": "495 North Cowley Drive",
-      "address2": "Quis temporibus dolo",
-      "appointments": [
-        {
-          "userId": "71b0",
-          "userName": "medhat",
-          "doctorId": "9224",
-          "doctorName": "Dr. Sarah Patel",
-          "date": "6/29/2025",
-          "time": "04:30 PM"
-        }
-      ],
-      "gender": "Male",
-      "type": "Default",
-      "role": "user"
-    }
-  ],
+  "users": [],
   "admins": [
     {
       "id": "f3ef",
